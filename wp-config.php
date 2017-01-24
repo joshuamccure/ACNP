@@ -22,11 +22,6 @@
  // ** MySQL settings - You can get this info from your web host ** //
  $url = parse_url(getenv('DATABASE_URL') ? getenv('DATABASE_URL') : getenv('CLEARDB_DATABASE_URL'));
 
- if ( file_exists( dirname( __FILE__ ) . '/local-config.php' ) ) {
-  include( dirname( __FILE__ ) . '/local-config.php' );
-  define( 'WP_LOCAL_DEV', true ); // We'll talk about this later
-} else {
-
  /** The name of the database for WordPress */
  define('DB_NAME', trim($url['path'], '/'));
 
@@ -44,7 +39,6 @@
 
  /** The Database Collate type. Don't change this if in doubt. */
  define('DB_COLLATE', '');
- }
 
 /**#@+
  * Authentication Unique Keys and Salts.
